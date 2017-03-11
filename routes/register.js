@@ -26,7 +26,7 @@ registerRouter.create = (req, res) => {
 
 registerRouter.delete = (req, res) => {
     // console.log(req.body);
-    var userid = req.body.id;
+    var userid = req.body.uid;
      console.log(userid);
     userRegister.findOneAndRemove({ _id: userid}, (err, user) => {
         if (err) {

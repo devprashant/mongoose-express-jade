@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/cstay_products", ()=> console.log('db connected!!!'));
+// mongoose.connect("mongodb://localhost/cstay_products", ()=> console.log('db connected!!!'));
 
 var productSchema = new Schema({
     

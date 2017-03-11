@@ -19,15 +19,20 @@ body
                     th Id
                     th Role
                     th Created At
+                    th Operation
                     
             tbody
                 - for user,index in users
                     tr
-                        th #{index}
-                        th #{user.username}
-                        th #{user.password}
-                        th #{user.name}
-                        th #{user.email}
-                        th #{user.id}
-                        th #{user.role}
-                        th #{user.created_at}
+                        td #{index+1}
+                        td #{user.username}
+                        td #{user.password}
+                        td #{user.name}
+                        td #{user.email}
+                        td #{user.id}
+                        td #{user.role}
+                        td #{user.created_at.getDate()} / #{user.created_at.getMonth()+1} / #{user.created_at.getFullYear()}
+                        td 
+                            form(method="post", action="/register/delete")
+                                input(type="hidden", value=user.id , name="uid")
+                                button.btn.btn-danger.btn-sm.btn-block.delete-button(type="submit") Delete

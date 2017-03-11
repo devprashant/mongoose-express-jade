@@ -1,0 +1,67 @@
+doctype html
+head
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="stylesheets/list.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Passion+One")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Oxygen")
+    title Products Page
+body
+    h1 Products Listing
+    .container
+        button.btn.btn-info.btn-lg(data-toggle="modal", data-target="#addProductModel") Add Product
+        .modal.fade#addProductModel(role="dialog")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type="button", data-dismiss="modal") &times;
+                        h4.modal-title Add Product
+                    .modal-body
+                      form(method="post", action="/products/create")
+                        .form-group
+                            label(for="pname") Product Name
+                            input.form-control#pname(type="text", name="pname", placeholder="Enter Product Name")
+                        .form-group
+                            label(for="description") Description
+                            input.form-control#description(type="text", name="pdescription", placeholder="Please Enter Product Description")
+                        .form-group
+                            label(for="mrp") Mrp
+                            input.form-control#mrp(type="text", name="pmrp", placeholder="Product MRP")
+                        .form-group
+                            label(for="sp") Selling Price
+                            input.form-control#sp(type="text", name="psp", placeholder="Product SP")
+                        .form-group
+                            label(for="mxdiscount") Maximum Discount
+                            input.form-control#mxdiscount(type="text", name='pmxdiscount', placeholder="Enter Max discount")
+                        .form-group
+                            button.btn.btn-primary.btn-lg.btn-block.save-button(type="submit") Save Product
+    table.table
+        thead
+            tr
+                th #
+                th Name
+                th Mrp
+                th Selling Price
+                th Max Discount
+                th Created At
+                th Operation
+        tbody
+            for product,index in products
+                tr  
+                    td #{index+1}
+                    td #{product.productname}
+                    td #{product.mrp}
+                    td #{product.sp}
+                    td #{product.mxdiscount}
+                    td #{product.created_at.getDate()} / #{product.created_at.getMonth()+1} / #{product.created_at.getFullYear()}
+                    td 
+                        form(method="post", action="/products/delete")
+                            input(type="hidden", value=product._id, name="pid")
+                            button.btn.btn-danger.btn-sm.delete-button(type="submit") Delete
+        
+        
+        
+    

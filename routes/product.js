@@ -3,11 +3,11 @@ var productRegister = mongoose.model('product_reg');
 var productRouter = {};
 
 productRouter.index = (req, res) => {
-    res.render('product_index');
+    res.render('product_list');
 };
 
 //************************Product CRUD operations***********************************************************************
-//===============================Product Create===============================================
+//===============================Product Create===============================================CCCCCCCCCC
 productRouter.create = (req, res) => {
     
     var newProduct = {
@@ -25,16 +25,27 @@ productRouter.create = (req, res) => {
         
         res.redirect('/products');
     });
-    res.redirect('/products');
+    // res.redirect('/products');
 };//===================/////////
 
-//=======================================Product Update========================================
+//========================================Product Read========================================RRRRRRRRRRRR
+productRouter.all = (req, res) => {
+    productRegister.find({},null, { sort: {'_id': '-1'}}, (err, products) => {
+       if (err) {
+           res.render('error', {error: 'error reading products'});
+       } 
+       
+       res.render('product_list', {products: products});
+    });
+};
+
+//=======================================Product Update========================================UUUUUUUUUUU
 productRouter.update = (req, res) => {
     
 };//===================///////
 
 
-//=======================================Product Delete========================================
+//=======================================Product Delete========================================DDDDDDDDDDDD
 productRouter.delete = (req, res) => {
     
     var productId = req.body.pid;
