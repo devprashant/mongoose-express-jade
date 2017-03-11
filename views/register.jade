@@ -1,0 +1,71 @@
+doctype html
+head
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="stylesheets/main.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Passion+One")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Oxygen")
+    title admin  cstay org
+    body
+        .container
+            .row.main
+                .panel-heading
+                    .panel-title.text-center
+                        h1.title cstay
+                    
+                .main-login.main-center
+                    form.form-horizontal(method="post", action="/register/create")
+                        .form-group
+                            label.cols-sm-2.control-label(for="name") your name
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-user.fa(aria-hidden="true")
+                                    input.form-control#name(name="name",type="text", placeholder="Enter your Name")
+                                    
+                        .form-group
+                            label.cols-sm-2.control-label(for="email") your email
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-envelope.fa(aria-hidden="true")
+                                    input.form-control#email(name="email", type="text", placeholder="Enter your email")
+                                    
+                        .form-group
+                            label.cols-sm-2.control-label(for="username") username
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-users(aria-hidden="true")
+                                    input.form-control#username(name="username", type="text", placeholder="Enter your username")
+                        
+                        .form-group
+                            label.cols-sm-2.control-label(for="userrole") userrole
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-users(aria-hidden="true")
+                                    input.form-control#username(name="userrole", type="text", placeholder="Enter your user role")
+                                    
+                        .form-group
+                            label.cols-sm-2.control-label(for="password") password
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-lock.fa-lg(aria-hidden="true")
+                                    input.form-control#password(name="password", type="password", placeholder="Enter your password")
+                                    
+                        .form-group
+                            label.cols-sm-2.control-label(for="confirm") confirm password
+                            .cols-sm-10
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-lock.fa-lg(aria-hidden="true")
+                                    input.form-control#confirm(name="confirm", type="password", placeholder="Confirm your password")
+                                    
+                        .form-group
+                           button.btn.btn-primary.btn-lg.btn-block.login-button(type="submit") Register
+                           
+                        .login-register
+                            a(href="/login") Login

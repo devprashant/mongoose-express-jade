@@ -1,0 +1,33 @@
+doctype html
+head
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="stylesheets/list.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Passion+One")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Oxygen")
+    title user list
+body
+        table.table
+            thead
+                tr
+                    th #
+                    th UserName
+                    th Password
+                    th Name
+                    th Email
+                    th Id
+                    th Role
+                    th Created At
+                    
+            tbody
+                - for user,index in users
+                    tr
+                        th #{index}
+                        th #{user.username}
+                        th #{user.password}
+                        th #{user.name}
+                        th #{user.email}
+                        th #{user.id}
+                        th #{user.role}
+                        th #{user.created_at}
